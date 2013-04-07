@@ -113,6 +113,14 @@ textarea {
 	-moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
 	box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
 }
+.navbar .brand {
+	background-image: url('../TLDROfficial.png');
+	background-position: center center;
+	background-size: 90px;
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 100px;
+}
 
 .main-content {
 	font-style: "Futura";
@@ -121,6 +129,11 @@ textarea {
 .rule-list {
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+#wijcompositechart {
+	height: 300px;
+	width: 100%;
 }
 
 

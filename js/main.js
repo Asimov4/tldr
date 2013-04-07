@@ -7,7 +7,7 @@ requirejs.config({
 	//never includes a ".js" extension since
 	//the paths config could be for a directory.
 	paths : {
-		jquery : 'vendor/jquery-1.9.1.min',
+		jquery : 'vendor/jquery-1.8.3.min',
 		jqueryui: 'vendor/jquery-ui.min',
 		knockoutCore : 'vendor/knockout-2.2.1',
 		knockoutValidation: 'vendor/knockout.validation',

@@ -1,9 +1,10 @@
-define(['knockout', 'knockback', 'baseController', 'wijmo'], function(ko, kb, baseController, wijmo) {
+define(['knockout', 'knockback', 'baseController', 'wijmo', 'bootstrap'], function(ko, kb, baseController, wijmo) {
 
-	debugger;
 	var view = baseController.extend({
 		viewName : "dashboardview",
 		onReady : function() {
+			$("#configureInfoViz").alert();
+			
 			$("#wijcompositechart").wijcompositechart({
 				axis : {
 					y : {
