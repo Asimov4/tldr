@@ -22,6 +22,7 @@ define(['knockout', 'knockback', 'baseController'], function(ko, kb, BaseControl
 			this.inactiveLinks.homeLink = new navLink("Home", "home", "#home");
 			this.inactiveLinks.aboutLink = new navLink("About", "about", "#about");
 			this.inactiveLinks.signupLink = new navLink("Sign Up", "signup", "#signup");
+			this.inactiveLinks.dashboardLink =new navLink("Dashboard", "dashboard", "#dashboard");
 			this.inactiveLinks.configureLink =new navLink("Configure Email", "configuration", "#configuration");
 			this.inactiveLinks.accountLink = new navLink("Account Settings", "account", "#account");
 			this.inactiveLinks.logoutLink = new navLink("Logout", "logout", "#logout");
@@ -38,11 +39,13 @@ define(['knockout', 'knockback', 'baseController'], function(ko, kb, BaseControl
 			window.applicationState.isLoggedIn.subscribe(function(val) {
 				if (val) {
 					window.applicationState.links.remove(this.inactiveLinks.signupLink);
+					
+					window.applicationState.links.push(this.inactiveLinks.dashboardLink);
 					window.applicationState.links.push(this.inactiveLinks.configureLink);
 					window.applicationState.links.push(this.inactiveLinks.accountLink);
 					window.applicationState.links.push(this.inactiveLinks.logoutLink);
 				} else {
-					
+					window.applicationState.links.remove(this.inactiveLinks.dashboardLink);
 					window.applicationState.links.remove(this.inactiveLinks.configureLink);
 					window.applicationState.links.remove(this.inactiveLinks.accountLink);
 					window.applicationState.links.remove(this.inactiveLinks.logoutLink);

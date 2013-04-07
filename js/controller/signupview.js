@@ -13,12 +13,9 @@ define(['knockout', 'knockback', 'baseController'], function(ko, kb, BaseControl
 				dataType : "jsonp"
 			});
 
-			deferredResponse.done(function(data) {
-				console.log(data);
-				window.app_router.navigate("dashboard", {
-					trigger : true,
-					replace : true
-				});
+			window.app_router.navigate("dashboard", {
+				trigger : true,
+				replace : true
 			});
 
 		};
