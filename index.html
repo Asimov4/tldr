@@ -43,16 +43,16 @@
               <a href="#" class="active">HOME</a>
             </li>
             <li>
-              <a href="http://www.kickstarter.com/projects/1387417188/1321162666?token=207351b7">KICKSTARTER</a>
+              <a href="http://www.kickstarter.com/projects/1387417188/1321162666?token=207351b7" target="_blank">KICKSTARTER</a>
             </li>
             <li>
-              <a href="https://vimeo.com/63524706">STORY</a>
+              <a href="https://vimeo.com/63524706" target="_blank">STORY</a>
             </li>
             <li>
-              <a href="http://toolong.co/text-summarization-master/sum.htm">DEMO</a>
+              <a href="http://toolong.co/text-summarization-master/sum.htm" target="_blank">DEMO</a>
             </li>
             <li>
-              <a href="mailto:sidjoshi@toolong.co">CONTACT</a>
+              <a href="mailto:sidjoshi@toolong.co" target="_blank">CONTACT</a>
             </li>
           </ol>
         </div>
@@ -111,15 +111,44 @@
           </p>
         </div>
         <div class="colr">
-          <img src="./tldr_files/notification-shot.png">
+          <img id="bluecard" src="./tldr_files/postcardblue.png" style="padding-left: 60px; position: absolute;  width: 203px; height: auto">
+          <img id="longletter" src="./tldr_files/long letter.png" style="padding-top: 73px; width: 370px; height: auto">
+          <script type="text/javascript" >
+        $("#longletter").hover( 
+			function(){ 
+		    	$("#longletter").stop().animate({opacity: 0 }, 1000)},
+			function(){ 
+		    	$("#longletter").stop().animate({opacity: 1.0 }, 200)} 					
+		);
+        </script>
+          
         </div>
       </section>
     </div>
     <div class="gradient">
       <section class="mid-container">
         <div class="col">
-          <img src="./tldr_files/snoozes-shot.png">
+          <img id="toppic" src="./tldr_files/cleanenvelope4.png" style="position: absolute; width: 150px; height: auto"/>
+          <img id="postcardpink" src="./tldr_files/postcardpink.png" style="position: absolute; padding-left: -100px; padding-top: 118px; width: 150px; height: auto"/>
+          <img id="bottompic" src="./tldr_files/cleanenvelope4.png" style="position: absolute; padding-top: 235px; width: 150px; height: auto"/>
         </div>
+        <script type="text/javascript">
+        wiggle = function () {
+							$("#toppic").animate({ marginLeft: "50px"}, 200);
+							$("#bottompic").animate({ marginLeft: "50px"}, 200);
+							$("#toppic").animate({ marginLeft: "-50px"}, 500);
+							$("#bottompic").animate({ marginLeft: "-50px"}, 500);
+						}
+        $("#bottompic").hover(
+			function(){ 
+				interval = window.setInterval(wiggle, 700);
+		    	$("#postcardpink").stop().animate({ marginLeft: "300px", opacity: 1 }, 700)},
+			function(){ 
+				clearInterval(interval);
+		    	$("#postcardpink").stop().animate({ marginLeft: "-200px", opacity: 1 }, 200)}
+		);
+        </script>
+        
         <div class="colr">
           <h1 class="t3" style="color:#f286b6;">Bounce Back</h1>
           <p>
