@@ -1,0 +1,124 @@
+<div class="container">
+
+	<div class="row">
+		<h2>Configure automated replies</h2>
+		<form class="form-horizontal span5 offset1">
+			<h3>Create new reply template</h3>
+			<div class="control-group">
+				<label class="control-label" for="password">Template name</label>
+				<div class="controls">
+					<input data-bind="value: templateName" type="text" name="name" placeholder="name">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">Rich html formatting</label>
+				<div class="controls">
+					<input type="checkbox" value="msg" data-bind="checked: richFormatting" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">Compose Reply</label>
+				<div class="controls">
+					<textarea rows=6 data-bind="value: automatedReplyContent">		
+		</textarea>
+				</div>
+
+			</div>
+
+			<div class="control-group">
+
+				<button data-bind="click: attemptSignIn" class="controls btn-large btn-primary">
+					Create
+				</button>
+				<button data-bind="click: attemptSignIn" class="btn-large btn-inverse">
+					Cancel
+				</button>
+
+			</div>
+
+		</form>
+		<div class="span5">
+			<h3>Existing Reply Templates</h3>
+			<ul>
+				<li>
+					Rude Reply
+				</li>
+				<li>
+					Polite Reply
+				</li>
+				<li>
+					Casual Reply
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<h2>Configure email filters</h2>
+		<form class="form-horizontal span5 offset1">
+			<h3>Create new reply template</h3>
+			<div class="control-group">
+				<label class="control-label" for="password">Filter name</label>
+				<div class="controls">
+					<input data-bind="value: templateName" type="text" name="name" placeholder="name">
+				</div>
+			</div>
+			<h3>Rules</h3>
+			<div class="rule-list">
+				<div class="control-group">
+					<label class="control-label" for="password">Filter when incoming address(es)</label>
+					<div class="controls">
+						<input data-bind="value: templateName" type="email" name="name" placeholder="address">
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<select>
+								<option>AND</option>
+								<option>OR</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="password">Filter when incoming name</label>
+					<div class="controls">
+						<input data-bind="value: templateName" type="text" name="name" placeholder="name">
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<select>
+								<option>AND</option>
+								<option>OR</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="password">Filter when body contains text</label>
+					<div class="controls">
+						<input data-bind="value: templateName" type="text" name="name" placeholder="keyword(s)">
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<select>
+								<option>AND</option>
+								<option>OR</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="control-group">
+
+				<button data-bind="click: attemptSignIn" class="controls btn-large btn-primary">
+					Create
+				</button>
+				<button data-bind="click: attemptSignIn" class="btn-large btn-inverse">
+					Cancel
+				</button>
+
+			</div>
+
+		</form>
+	</div>
+</div>

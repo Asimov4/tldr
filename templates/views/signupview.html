@@ -1,0 +1,27 @@
+<div class="hero-unit span8 offset2">
+	<h1>Create an Account</h1>
+	<p>
+		You can read a lot of stuff about how to sign up and how to configure your application. You'll need to do x, y and z. Bla bla bla. Business people will write content. Ipsum lorem.
+	</p>
+	<blockquote><span class="tldr">TL;DR;</span>sign up and read less</blockquote>
+	<form class="sign-up-form form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Email</label>
+			<div class="controls">
+				<input data-bind="value: username" type="text" name="inputEmail" placeholder="Email">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">Password</label>
+			<div class="controls">
+				<input data-bind="value: password" type="password" name="password" placeholder="password">
+			</div>
+			<div class="controls">
+				<input data-bind="value: passwordConfirm" type="password" name="inputEmail" placeholder="confirm password">
+			</div>
+		</div>
+		
+		<input data-bind="click: attemptSignIn" class="btn-large btn-primary" type="submit"/>
+	</form>
+
+</div>

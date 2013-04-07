@@ -1,0 +1,8 @@
+<div class="navbar-inner">
+	<a class="brand" href="#/">Too Long</a>
+	<ul class="nav" data-bind="foreach: links">
+		<li data-bind="css: {active: isActive}">
+		<a data-bind="text: name, attr: {href: hashUrl}">Home</a>
+		</li>
+	</ul>
+</div>

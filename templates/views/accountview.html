@@ -1,0 +1,53 @@
+<div class="container">
+	<h2>Change Password</h2>
+	<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="password">First Name</label>
+			<div class="controls">
+				<input data-bind="value: password" type="password" name="password" placeholder="password">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">Last Name</label>
+			<div class="controls">
+				<input data-bind="value: password" type="password" name="password" placeholder="password">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">Time Zone</label>
+			<div class="controls">
+				<select>
+					<option>Pacific Time</option>
+					<option>Twilight Zone</option>
+					<option>Twilight Zone</option>
+					<option>Twilight Zone</option>
+				</select>
+			</div>
+		</div>
+
+		<input data-bind="click: attemptSignIn" class="btn-large btn-primary" type="submit"/>
+	</form>
+
+	<h2>Change Password</h2>
+	<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="password">Password</label>
+			<div class="controls">
+				<input data-bind="value: password" type="password" name="password" placeholder="New Password">
+			</div>
+			<div class="controls">
+				<input data-bind="value: passwordConfirm" type="password" name="inputEmail" placeholder="confirm new Password">
+			</div>
+		</div>
+
+		<input data-bind="click: attemptSignIn" class="btn-large btn-primary" type="submit"/>
+	</form>
+	<h2>Delete Account</h2>
+	<form class="row">
+		<div class="span6">
+
+			<input data-bind="click: attemptSignIn" class="btn-large btn-danger" type="submit"/>
+		</div>
+
+	</form>
+</div>
