@@ -19,7 +19,6 @@ define(['knockout', 'knockback', 'baseController'], function(ko, kb, BaseControl
 		},
 		initialize : function() {
 			this.inactiveLinks = {};
-			this.inactiveLinks.homeLink = new navLink("Home", "home", "#home");
 			this.inactiveLinks.aboutLink = new navLink("About", "about", "#about");
 			this.inactiveLinks.signupLink = new navLink("Sign Up", "signup", "#signup");
 			this.inactiveLinks.dashboardLink =new navLink("Dashboard", "dashboard", "#dashboard");
@@ -28,7 +27,6 @@ define(['knockout', 'knockback', 'baseController'], function(ko, kb, BaseControl
 			this.inactiveLinks.logoutLink = new navLink("Logout", "logout", "#logout");
 			
 			
-			window.applicationState.links.push(this.inactiveLinks.homeLink);
 			window.applicationState.links.push(this.inactiveLinks.aboutLink);
 			window.applicationState.links.push(this.inactiveLinks.signupLink);
 

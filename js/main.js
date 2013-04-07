@@ -20,7 +20,8 @@ requirejs.config({
 		router : 'router',
 		baseController: 'controller/baseController',
 		wijmo: 'vendor/jquery.wijmo-complete.all.2.3.9.min',
-		wijmoBase: 'vendor/jquery.wijmo-open.all.2.3.9.min'
+		wijmoBase: 'vendor/jquery.wijmo-open.all.2.3.9.min',
+		knockoutWijmo: 'vendor/knockout.wijmo'
 	},
 	shim : {
 		'jquery' : {

@@ -4,7 +4,6 @@ define(['jquery', 'underscore', 'backbone', 'knockout'], function($, _, Backbone
 		routes : {
 
 			// Define some URL routes
-			'home' : 'onHome',
 			'signup' : 'onSignup',
 			'about' : 'onAbout',
 			//not yet implemented
@@ -22,16 +21,6 @@ define(['jquery', 'underscore', 'backbone', 'knockout'], function($, _, Backbone
 			window.applicationState.links = ko.observableArray([]);
 
 			require(['js/controller/navbarview.js'], function(view) {
-				view.init();
-			});
-		},
-		onHome : function() {
-			window.app_router.navigate("home", {
-				trigger : false,
-				replace : true
-			});
-			window.applicationState.currentView("home");
-			require(['js/controller/homeview.js'], function(view) {
 				view.init();
 			});
 		},

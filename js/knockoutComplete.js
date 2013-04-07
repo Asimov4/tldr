@@ -2,7 +2,7 @@ define(['knockoutCore', 'underscore'], function(ko, _) {
 		
 	window.ko = ko;
 	
-	require(['knockoutValidation']);
+	require(['knockoutValidation', 'knockoutWijmo']);
 
 	return ko;
 });

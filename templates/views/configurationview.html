@@ -1,8 +1,25 @@
 <div class="container">
-
+	<h2>Configure automated replies</h2>
 	<div class="row">
-		<h2>Configure automated replies</h2>
-		<form class="form-horizontal span5 offset1">
+		<div class="span5 offset1">
+			<h3>Existing Reply Templates</h3>
+			<ul>
+				<li>
+					Rude Reply
+				</li>
+				<li>
+					Polite Reply
+				</li>
+				<li>
+					Casual Reply
+				</li>
+			</ul>
+			<button class="btn btn-inverse" data-bind="click: openTemplateCreator">New..</button>
+		</div>
+	</div>
+	<div data-bind="if: showCreator" class="row">
+
+		<form class="form-horizontal span10 offset1">
 			<h3>Create new reply template</h3>
 			<div class="control-group">
 				<label class="control-label" for="password">Template name</label>
@@ -16,41 +33,24 @@
 					<input type="checkbox" value="msg" data-bind="checked: richFormatting" />
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" for="password">Compose Reply</label>
-				<div class="controls">
-					<textarea rows=6 data-bind="value: automatedReplyContent">		
-		</textarea>
-				</div>
+			<h4>Compose Reply</h4>
+			<textarea id="composer"style="width: 100%; height: 500px;" data-bind="wijeditor: {mode: 'simple', editorMode: true,showPathSelector: true }"></textarea>						
 
-			</div>
+
 
 			<div class="control-group">
 
-				<button data-bind="click: attemptSignIn" class="controls btn-large btn-primary">
+				<button data-bind="click: createNewTemplate" class="controls btn-large btn-primary">
 					Create
 				</button>
-				<button data-bind="click: attemptSignIn" class="btn-large btn-inverse">
+				<button data-bind="click: cancelTemplate" class="btn-large btn-inverse">
 					Cancel
 				</button>
 
 			</div>
 
 		</form>
-		<div class="span5">
-			<h3>Existing Reply Templates</h3>
-			<ul>
-				<li>
-					Rude Reply
-				</li>
-				<li>
-					Polite Reply
-				</li>
-				<li>
-					Casual Reply
-				</li>
-			</ul>
-		</div>
+
 	</div>
 	<div class="row">
 		<h2>Configure email filters</h2>
@@ -59,7 +59,7 @@
 			<div class="control-group">
 				<label class="control-label" for="password">Filter name</label>
 				<div class="controls">
-					<input data-bind="value: templateName" type="text" name="name" placeholder="name">
+					<input  type="text" name="name" placeholder="name">
 				</div>
 			</div>
 			<h3>Rules</h3>
@@ -67,7 +67,7 @@
 				<div class="control-group">
 					<label class="control-label" for="password">Filter when incoming address(es)</label>
 					<div class="controls">
-						<input data-bind="value: templateName" type="email" name="name" placeholder="address">
+						<input  type="email" name="name" placeholder="address">
 					</div>
 					<div class="control-group">
 						<div class="controls">
@@ -81,7 +81,7 @@
 				<div class="control-group">
 					<label class="control-label" for="password">Filter when incoming name</label>
 					<div class="controls">
-						<input data-bind="value: templateName" type="text" name="name" placeholder="name">
+						<input  type="text" name="name" placeholder="name">
 					</div>
 					<div class="control-group">
 						<div class="controls">
@@ -95,7 +95,7 @@
 				<div class="control-group">
 					<label class="control-label" for="password">Filter when body contains text</label>
 					<div class="controls">
-						<input data-bind="value: templateName" type="text" name="name" placeholder="keyword(s)">
+						<input  type="text" name="name" placeholder="keyword(s)">
 					</div>
 					<div class="control-group">
 						<div class="controls">
@@ -110,10 +110,10 @@
 
 			<div class="control-group">
 
-				<button data-bind="click: attemptSignIn" class="controls btn-large btn-primary">
+				<button  class="controls btn-large btn-primary">
 					Create
 				</button>
-				<button data-bind="click: attemptSignIn" class="btn-large btn-inverse">
+				<button  class="btn-large btn-inverse">
 					Cancel
 				</button>
 
