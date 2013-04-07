@@ -83,8 +83,21 @@
     <div class="gradient">
       <section class="mid-container">
         <div class="col">
-          <img src="./tldr_files/fly-through-shot.png">
+          <img src="./tldr_files/cleanenvelope2.png" style="position: absolute; height: 400px; width: auto"/>
+          <img id="postcard1" src="./tldr_files/postcard.png" style="padding-top: 170px;float: inherit; position: absolute;  width: 334px; height: auto"/>
+          <img id="env" src="./tldr_files/cleanenvelope3.png" style="padding-top: 170px; position: absolute; width: 334px; height: auto"/>
         </div>
+        <script type="text/javascript" >
+        $("#env").hover( 
+			function(){ 
+				// $("#postcard1").stop().animate({ marginTop: "0px" }, 300);
+		    	$("#postcard1").stop().animate({ marginTop: "-70px", opacity: 1 }, 300)},
+			function(){ 
+				// $("#postcard1").stop().animate({ marginTop: "-10px" }, 200);
+		    	$("#postcard1").stop().animate({ marginTop: "10px", opacity: 0.8 }, 200)} 					
+		);
+        </script>
+
         <div class="colr">
           <h1 class="t3" style="color:#FA8385;">Elevate your inbox.</h1>
           <span itemprop="description">
@@ -251,6 +264,7 @@
       </div>
     </div>
     <script type="text/javascript">
+   
       //<![CDATA[
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-34083064-1']);
