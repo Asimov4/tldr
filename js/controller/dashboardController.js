@@ -4,100 +4,71 @@ define(['knockout', 'knockback', 'baseController', 'wijmo', 'bootstrap'], functi
 		viewName : "dashboardview",
 		onReady : function() {
 			$("#configureInfoViz").alert();
+			this.viewModel = {};
 			
-			$("#wijcompositechart").wijcompositechart({
-				axis : {
-					y : {
-						text : "Total Hardware"
-					},
-					x : {
-						text : ""
-					}
-				},
-				stacked : false,
-				hint : {
-					content : function() {
-						return this.label + '\n ' + this.y + '';
-					}
-				},
-				header : {
-					text : "Hardware Distribution"
-				},
-				seriesList : [{
-					type : "column",
-					label : "West",
-					legendEntry : true,
-					data : {
-						x : ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
-						y : [5, 3, 4, 7, 2]
-					}
-				}, {
-					type : "column",
-					label : "Central",
-					legendEntry : true,
-					data : {
-						x : ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
-						y : [2, 2, 3, 2, 1]
-					}
-				}, {
-					type : "column",
-					label : "East",
-					legendEntry : true,
-					data : {
-						x : ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
-						y : [3, 4, 4, 2, 5]
-					}
-				}, {
-					type : "pie",
-					label : "asdfdsfdsf",
-					legendEntry : true,
-					center : {
-						x : 150,
-						y : 150
-					},
-					radius : 60,
-					data : [{
-						label : "MacBook Pro",
-						legendEntry : true,
-						data : 46.78,
-						offset : 15
-					}, {
-						label : "iMac",
-						legendEntry : true,
-						data : 23.18,
-						offset : 0
-					}, {
-						label : "MacBook",
-						legendEntry : true,
-						data : 20.25,
-						offset : 0
-					}]
-				}, {
-					type : "line",
-					label : "Steam1",
-					legendEntry : true,
-					data : {
-						x : ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
-						y : [3, 6, 2, 9, 5]
-					},
-					markers : {
-						visible : true,
-						type : "circle"
-					}
-				}, {
-					type : "line",
-					label : "Steam2",
-					legendEntry : true,
-					data : {
-						x : ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
-						y : [1, 3, 4, 7, 2]
-					},
-					markers : {
-						visible : true,
-						type : "tri"
-					}
-				}]
-			});
+			this.viewModel.averageResponseTimeData = {
+                axis: {
+                    y: {
+                        text: "Percentage"
+                    },
+                    x: {
+                        text: "Hours"
+                    }
+                },
+                hint: {
+                    content: function () {
+                        return this.data.label + '\n ' + this.y + '';
+                    }
+                },
+                header: {
+                    text: "Average Response Time"
+                },
+                seriesList: [{
+                	label: 'work',
+                    legendEntry: false,
+                    data: { x: ['<1', '1-2', '2-4', '4-8', '>8'], y: [20, 20, 10, 30, 20] }
+                }],
+                seriesStyles: [{
+                    fill: "#8ede43", stroke: "#7fc73c", opacity: 0.8
+                }],
+                seriesHoverStyles: [{
+                    "stroke-width": "1.5", opacity: 1
+                }]
+            };
+            
+            this.viewModel.averageEmailLength = {
+                axis: {
+                    y: {
+                        text: "Percentage"
+                    },
+                    x: {
+                        text: "Characters"
+                    }
+                },
+                hint: {
+                    content: function () {
+                        return this.data.label + '\n ' + this.y + '';
+                    }
+                },
+                header: {
+                    text: "Average Email Length"
+                },
+                seriesList: [{
+                	label: 'work',
+                    legendEntry: false,
+                    data: { x: ['<100', '100-200', '200-400', '400-800', '>800'], y: [20, 20, 10, 30, 20] }
+                }],
+                seriesStyles: [{
+                    fill: "#8ede43", stroke: "#7fc73c", opacity: 0.8
+                }],
+                seriesHoverStyles: [{
+                    "stroke-width": "1.5", opacity: 1
+                }]
+            };
+            
+            ko.applyBindings(this.viewModel, this.el);
+			
+			
 		}
 	});
 
