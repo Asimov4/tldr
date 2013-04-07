@@ -8,6 +8,7 @@ requirejs.config({
 	//the paths config could be for a directory.
 	paths : {
 		jquery : 'vendor/jquery-1.9.1.min',
+		jqueryui: 'vendor/jquery-ui.min',
 		knockoutCore : 'vendor/knockout-2.2.1',
 		knockoutValidation: 'vendor/knockout.validation',
 		knockout: 'knockoutComplete',
@@ -17,7 +18,9 @@ requirejs.config({
 		backbone : 'vendor/backbone',
 		knockoutBootstrap : 'vendor/knockout-bootstrap',
 		router : 'router',
-		baseController: 'controller/baseController'
+		baseController: 'controller/baseController',
+		wijmo: 'vendor/jquery.wijmo-complete.all.2.3.9.min',
+		wijmoBase: 'vendor/jquery.wijmo-open.all.2.3.9.min'
 	},
 	shim : {
 		'jquery' : {
@@ -29,12 +32,21 @@ requirejs.config({
 		'backbone' : {
 			deps : ['jquery', 'underscore'],
 			exports : 'Backbone'
+		},
+		'jqueryui': {
+			deps: ['jquery']
+		},
+		'wijmoBase': {
+			deps: ['jqueryui']
+		},
+		'wijmo': {
+			deps: ['wijmoBase']
 		}
 	}
 });
 
 // Start the main app logic.
-requirejs(['jquery', 'knockout', 'backbone', 'router'], function($, ko, Backbone, Router) {
+requirejs(['jquery', 'knockout', 'backbone', 'router', 'wijmo'], function($, ko, Backbone, Router) {
 	window.app = {};
 	window.app.viewFolder = "templates/views";
 	Router.initialize();
