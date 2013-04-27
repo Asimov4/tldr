@@ -1,0 +1,189 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script src="http://static.tumblr.com/ye1veqw/NGdmkujr7/underscore-1.2.3.js"></script>  
+<script src="http://static.tumblr.com/ye1veqw/h4xmkujrs/underscore.string-2.0.0.js"></script>   
+<script src="http://static.tumblr.com/ye1veqw/Epbmkujs8/porter-stemmer.js"></script>
+<script src="http://static.tumblr.com/ye1veqw/6b7mkujss/sum.js"></script>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="js/lib/bootstrap-wysihtml5/css/bootstrap-wysihtml5.css" rel="stylesheet"></link>
+    <link href="css/jquery.spellchecker.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lexer.js"></script>
+<script type="text/javascript" src="js/lexicon.js_"></script>
+<script type="text/javascript" src="js/POSTagger.js"></script>
+<script src="./jquery.spellchecker.js"></script>
+
+    <div class="container" style="width: 600px !important;">
+      <div class="row-fluid">
+	  
+      <div class="hero-unit" align="center">
+        <img src="http://toolong.co/TLDROfficial.png">
+		<h1>DEMO</h1>
+      </div>
+	  
+            <div class="tab-pane active well" id="demo">
+				<textarea id="summary" class="textarea" style="width:90%" rows="10" style="font-size: 30px"> A sufficient number of cards have arrived at this point so that they are hopefully sent to the clients. The reason why we are currently sending them is on the ground that a number of clients will give us business for free. Similarly, our posters is the reason why we have a sufficient number of traffic on an daily basis.</textarea>
+			</div>
+<p><b>Keep it to a few sentences.</b> 2 to 5 sentences max is a good rule.</p>
+
+<p><b>Remove unnessary words.</b> They do not clarify your message.</p>
+
+<p><b>Skip a long greeting.</b> Their time is valuable so get to the point.</p>
+
+<p><b>Focus on a single topic.</b> This will help you keep it concise.</p>
+
+</p><b>Re-Read & Edit.</b> Remove unnecessary words and sentences.</p>
+
+</p><b>Consider not sending.</b> Sometimes, an email is unnecessary.</p>
+
+<h3>Tagged Sample Text</h3>
+<div id="tagged_text"></div>
+
+<p> Tips from:
+	<ul>
+		<li><a href="http://www.dailywritingtips.com/12-tips-for-clipping-unnecessary-words/">12 Tips for Clipping Unnecessary Words</a></li>
+		<li><a href="http://owl.english.purdue.edu/owl/resource/572/02/">Purdue University: eliminating words</a></li>
+		<li><a href="http://www.plainlanguage.gov/howto/guidelines/FederalPLGuidelines/writeOmitUnnecc.cfm">plainlanguage.gov</a></li>
+	</ul>
+</p>
+
+      <footer>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script src="js/lib/bootstrap-wysihtml5/js/wysihtml5-0.3.0.js"></script>
+    <script src="js/lib/jquery/jquery-1.8.2.min.js"></script>
+    <script src="js/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="js/lib/bootstrap-wysihtml5/js/bootstrap-wysihtml5.js"></script>
+    <script src="js/lib/prettyprint/prettyprint.js"></script>
+    <script src="js/jquery.spellchecker.js"></script>
+
+    <script>
+    (function() {
+      
+      var element = $('.textarea');
+      
+      element.wysihtml5({
+        toolbar: {
+           "spellchecker":
+              "<li>" +
+                  "<a class='btn' data-wysihtml5-command='spellcheck'>" + 
+                  "<i class='icon-spellchecker spellchecker-button-icon'></i></a>" +
+              "</li>"
+        },
+        stylesheets: [
+          "./css/jquery.spellchecker.css"
+        ],     
+      });
+
+      var wysihtml5 = element.data('wysihtml5');
+      var body = $(wysihtml5.editor.composer.iframe).contents().find('body');
+      
+      var toggle = (function() {
+      
+        var spellchecker = null;
+
+        function create() {
+
+          spellchecker = new $.SpellChecker(body, {
+            lang: 'en',
+            parser: 'html',
+            webservice: {
+              path: "../webservices/php/SpellChecker.php",
+              driver: 'pspell'
+            },
+            suggestBox: {
+              position: 'below'
+            }
+          });
+
+          spellchecker.on('check.success', function() {
+            alert('There are no incorrectly spelt words.');
+          });
+
+          spellchecker.check();
+        }
+
+        function destroy() {
+          spellchecker.destroy();
+          spellchecker = null;
+        }
+
+        function toggle() {
+          (!spellchecker) ? create() : destroy();
+        }
+
+        return toggle;
+      })();
+      
+      wysihtml5.toolbar.find('[data-wysihtml5-command="spellcheck"]').click(toggle);
+    })();
+    </script>
+
+<script>
+function htmlForTextWithEmbeddedNewlines(text) {
+    var htmls = [];
+    var lines = text.split(/\n/);
+    // The temporary <div/> is to perform HTML entity encoding reliably.
+    //
+    // document.createElement() is *much* faster than jQuery('<div/>')
+    // http://stackoverflow.com/questions/268490/
+    //
+    // You don't need jQuery but then you need to struggle with browser
+    // differences in innerText/textContent yourself
+    var tmpDiv = jQuery(document.createElement('div'));
+    for (var i = 0 ; i < lines.length ; i++) {
+        htmls.push(tmpDiv.text(lines[i]).html());
+    }
+    return htmls.join("<br>");
+}
+
+function summarize() {
+	var abstract = sum({ 'corpus': $("#email").val(), 'nSentences': 4 });
+	console.log(abstract);
+
+	var summary = "";
+
+	for (var i = abstract.sentences.length - 1;i>=0; i--) {
+	  summary += abstract.sentences[i] + ".\n\n";
+	}
+
+	editor.setValue(htmlForTextWithEmbeddedNewlines(summary),true);
+}
+
+var spellchecker = new $.SpellChecker('#text-content', {
+  lang: 'en',
+  parser: 'html',
+  webservice: {
+    path: '../webservices/php/SpellChecker.php',
+    driver: 'PSpell'
+  },
+  suggestBox: {
+    position: 'below'
+  }
+});
+ 
+// Bind spellchecker handler functions
+spellchecker.on('check.success', function() {
+  alert('There are no incorrectly spelt words!');
+});
+ 
+// Check the spelling when user clicks on button
+$("#check-spelling-button").click(function(e){
+  spellchecker.check();
+});
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39954526-1', 'toolong.co');
+  ga('send', 'pageview');
+
+</script>
