@@ -143,6 +143,15 @@ textarea {
 	background-repeat: no-repeat;
 }
 
+.wysihtml5-toolbar .icon-tldr {
+	background-image: url('/images/tldrbutton.png');
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 34px;
+}
+
 
 
 
