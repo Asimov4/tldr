@@ -88,10 +88,12 @@
 				"image" : false, //Button to insert an image. Default true,
 				"color" : false, //Button to change color of font
 				toolbar : {
-					"spellchecker" : "<li>" + "<a class='btn' data-wysihtml5-command='spellcheck'>" + "<i class='icon-tldr tldr-button-icon'></i></a>" + "</li>"
+					"spellchecker" : "<li id='initiate-tldr'>" + "<a class='btn' data-wysihtml5-command='spellcheck'>" + "<i class='icon-tldr tldr-button-icon'></i></a>" + "</li>"
 				},
 				stylesheets : ["/css/jquery.spellchecker.css"],
 			});
+			
+
 
 			var wysihtml5 = element.data('wysihtml5');
 			var body = $(wysihtml5.editor.composer.iframe).contents().find('body');

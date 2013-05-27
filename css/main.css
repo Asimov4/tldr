@@ -136,6 +136,19 @@ textarea {
 	width: 100%;
 }
 
+ul.wysihtml5-toolbar {
+	width: 92%;
+}
+
+li#initiate-tldr {
+    float: right;
+    margin-right: -3px;
+}
+
+iframe.wysihtml5-sandbox {
+	padding: 0px;
+}
+
 .btn-large.icon-button {
 	background-image: url('../TLDROfficial.png');
 	background-position: center center;
